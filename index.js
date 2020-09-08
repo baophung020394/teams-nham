@@ -36,25 +36,3 @@ function addCouple(form) {
   
     return random(list);
 }
-
-function validateForm() {
-    var rep = document.forms["myForm"]["rep"].value;
-    if (rep < 3) {
-        alert("Min rep is 3");
-        return false;
-    }
-}
-// var arr = [
-//     {id: 1, name: 'A', rep: 3},
-//     {id: 2, name: 'B', rep: 3},
-//     {id: 3, name: 'C', rep: 3},
-//     {id: 4, name: 'D', rep: 3},
-//     {id: 5, name: 'E', rep: 3},
-// ]
-
-// for (let [m1, mem01] of arr.entries()) {
-//     for(let m2 = m1 + 1; m2 < arr.length; m2++) {
-//         let mem02 = arr[m2];
-//         console.log(`${mem01.name}${mem02.names}`)
-//     }
-// }
