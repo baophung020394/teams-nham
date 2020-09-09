@@ -5,26 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css"> 
 </head>
 <body>
     <div class="container">
         <div class="row">
-            <form method="GET" name="myForm">
-                <div class="form-group pt-5">
-                    <label for="rep">ID</label>
-                    <input type="number" class="form-control mb-3" name="id">
-                    <label for="rep">Số hiệp</label>
-                    <input type="number" class="form-control mb-3" name="rep">
+            <!-- <form method="GET" name="myForm"> -->
+                <div class="form-group pt-5 mr-5">
                     <label>Tên người</label>
-                    <input type="text" class="form-control mb-3" name="name">
-                    <button type="button" class="btn btn-primary" onclick="addCouple(this.form)">Add</button>
+                    <input type="text" class="form-control mb-3 name" name="name">
+                    <button type="button" class="btn btn-primary" onclick="addCouple()">Add</button>
                 </div>
-            </form>
+                <div class="form-group pt-5">
+                    <label for="rep">Số hiệp</label>
+                    <input type="text" class="form-control mb-3 reps" name="rep">
+                </div>
+            <!-- </form> -->
+            <div class="col-12" style="padding-left:0">
+                <h2>Danh sách người chơi</h2>
+                <div id="listPeople"></div>
+            </div>
             <div class="col-12"  style="padding-left:0">
-                <button type="button" class="btn btn-primary" onclick="random(list)">Random Teams</button>
+                <button type="button" class="btn btn-primary" onclick="random()">Random Teams</button>
             </div>
             <div class="col-12 pt-3" style="padding-left:0">
-                <h2>Danh sách Teams thi đấu</h2>
+                <h2>Danh sách người chơi bắt cặp</h2>
+                <div id="listCouple"></div>
+            </div>
+            <div class="col-12 pt-3" style="padding-left:0">
+                <h2>Danh sách teams thi đấu</h2>
                 <div id="listFight"></div>
             </div>
         </div>

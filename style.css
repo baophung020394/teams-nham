@@ -1,0 +1,39 @@
+#listPeople, #listCouple {
+    max-width: 300px;
+    padding: 10px;
+}
+#listPeople span {
+    display: block;
+    padding: 10px;
+    background-color: grey;
+    border-bottom: 3px solid #fff;
+    color: #fff;
+    border-radius: 4px;
+}
+
+#listCouple div {
+    display: block;
+    padding: 10px;
+    background-color: grey;
+    border-bottom: 3px solid #fff;
+    color: #fff;
+    border-radius: 4px;
+}
+#listFight {
+    padding: 10px;
+}
+#listFight div {
+    display: inline-block;
+    padding: 10px;
+    background-color: green;
+    border-bottom: 3px solid #fff;
+    color: #fff;
+    margin-right: 15px;
+    border-radius: 4px;
+}
+/* #listFight div:after {
+    content: ' vs';
+}
+#listFight div:last-child:after {
+    content: '';
+} */

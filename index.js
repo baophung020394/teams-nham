@@ -6,33 +6,80 @@ class Teams {
     }
 }
 
-var list = [];
+var listPeople = [];
 var listCoupleFight = [];
-function random(list) {
-    console.log(list);
-    var htmlDom = document.getElementById("listFight");
-    list.map(function (team, index) {
-        for (var i = index + 1; i < list.length; i++) {
-            // console.log(`${team.name}${list[i].name}`);
-            var listChild = team.name + list[i].name;
-            listCoupleFight.push(listChild);
-            console.log('result ' + listCoupleFight)
-            htmlDom.innerHTML = "<span>" + listCoupleFight +"</span>";
-            // console.log(listChild)
+
+function random() {
+    console.log(listPeople.length);
+    // listPeople = [];
+    // listCoupleFight = [];
+    var reps = document.querySelector('.reps').value;
+    var htmlDom2 = document.getElementById("listCouple");
+    var htmlDom3 = document.getElementById("listFight");
+    var couple, node2, fights, node3;
+    if (reps < 3) {
+        alert("Min rep is 3");
+        return false;
+    } 
+
+    if (listPeople.length < 2) {
+        alert("The number person min is 2");
+        return false;
+    } 
+
+    listPeople.map(function (team, index) {
+        for (var i = index + 1; i < listPeople.length; i++) {
+            console.log(`${team} + ${listPeople[i]}`);
+            couple = document.createElement("div");
+            node2 = document.createTextNode(`${team} + ${listPeople[i]}`);
+            couple.appendChild(node2);
+            htmlDom2.appendChild(couple);
+            listCoupleFight.push(`${team}${listPeople[i]}`);
+            console.log(listCoupleFight) 
+        }
+    })
+    listCoupleFight.map(function (team, index) {
+        for (var i = index + 1; i < listCoupleFight.length; i++) {
+            console.log(`${team} vs ${listCoupleFight[i]}`);
+            fights = document.createElement("div");
+            node3 = document.createTextNode(`${team} vs ${listCoupleFight[i]}`);
+            fights.appendChild(node3);
+            htmlDom3.appendChild(fights);
         }
     })
 }
-function addCouple(form) {
-    var id = parseInt(form.id.value);
-    var rep = parseInt(form.rep.value);
-    var name = form.name.value;
-    var couple = new Teams(id, name, rep);
-    if (rep < 3) {
+
+function addCouple() {
+    var text = '';
+    var name = document.querySelector('.name').value;
+    var htmlDom = document.getElementById("listPeople");
+    var span, node;
+    if (name) {
+        if (listPeople.includes(name)) {
+            alert('Duplicate Name');
+        } else {
+            listPeople.push(name);
+            console.log(listPeople);
+            listPeople.forEach(e => {
+                span = document.createElement("span");
+                node = document.createTextNode(e);
+            });
+            span.appendChild(node);
+            htmlDom.appendChild(span);
+            return listPeople;
+        }
+    }
+    else {
+        alert('Please input name');
+        // console.log(listPeople);
+    }
+}
+function addReps() {
+    var reps = document.querySelector('.reps').value;
+    if (reps < 3) {
         alert("Min rep is 3");
         return false;
     } else {
-        list.push(couple);
+        alert(reps);
     }
-  
-    return random(list);
 }
