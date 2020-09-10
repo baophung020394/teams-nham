@@ -16,8 +16,9 @@ function random() {
     var reps = parseInt( document.querySelector('.reps').value);
     var htmlDom2 = document.getElementById("listCouple");
     var htmlDom3 = document.getElementById("listFight");
-    var couple, node2, fights, node3;
-    console.log( listPeople.length);
+    var couple, node2, fights, node3, teamObj, listCoupleFightObj;
+    var arrTeam = [], arrlistCoupleFight = [];
+    // console.log( listPeople.length);
     if (reps < 3) {
         alert(`Min rep is 3`);
         return false;
@@ -33,26 +34,51 @@ function random() {
 
     listPeople.map(function (team, index) {
         for (var i = index + 1; i < listPeople.length; i++) {
-            console.log(`${team} + ${listPeople[i]}`);
+            // console.log(`${team} + ${listPeople[i]}`);
             couple = document.createElement("div");
             node2 = document.createTextNode(`${team} + ${listPeople[i]}`);
             couple.appendChild(node2);
             htmlDom2.appendChild(couple);
             listCoupleFight.push(`${team}${listPeople[i]}`);
-            console.log(listCoupleFight) 
+            // console.log(listCoupleFight) 
         }
     })
     listCoupleFight.map(function (team, index) {
         for (var i = index + 1; i < listCoupleFight.length; i++) {
-            console.log(`${team} vs ${listCoupleFight[i]}`);
+            // console.log(`${team.includes} vs ${listCoupleFight[i]}`);
+            arrTeam.push(team);
+            arrlistCoupleFight.push(listCoupleFight[i]);
+            convertArrToObject(Array.from(new Set(arrTeam)));
+            // console.log('team', Array.from(new Set(arrTeam)));
+            // console.log('listCoupleFight', Array.from(new Set(arrlistCoupleFight)));
             fights = document.createElement("div");
-            node3 = document.createTextNode(`${team} vs ${listCoupleFight[i]}`);
+            node3 = document.createTextNode(`${Array.from(new Set(arrTeam))} vs ${Array.from(new Set(arrlistCoupleFight))}`);
+            // console.log(node3)
             fights.appendChild(node3);
             htmlDom3.appendChild(fights);
         }
     })
 }
 
+function convertArrToObject(arrTeam) {
+    console.log(arrTeam);
+    let result = [];
+    // arrTeam.filter((item, index) => {
+    //     arrTeam.indexOf(item) !== index;
+    //     return arrTeam;
+        
+    // })
+    // console.log(arrTeam);
+    // arrTeam.forEach(e => {
+    //     console.log(e)
+    // })
+    // arrTeam.forEach((item, index) => { 
+    //     if (arrTeam.indexOf(item) == index) result.push(item) 
+    //     return result;
+    // });
+   
+    // console.log(result);
+}
 function addCouple() {
     var text = '';
     var name = document.querySelector('.name').value;
@@ -63,7 +89,7 @@ function addCouple() {
             alert('Duplicate Name');
         } else {
             listPeople.push(name);
-            console.log(listPeople);
+            // console.log(listPeople);
             listPeople.forEach(e => {
                 span = document.createElement("span");
                 node = document.createTextNode(e);
