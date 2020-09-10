@@ -26,8 +26,8 @@ function random() {
         return false;
     }
 
-    if (listPeople.length < 3) {
-        alert(`The number person min is 3`);
+    if (listPeople.length < 4) {
+        alert(`The number person min is 4`);
         return false;
     } 
 
