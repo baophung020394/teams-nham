@@ -13,17 +13,21 @@ function random() {
     console.log(listPeople.length);
     // listPeople = [];
     // listCoupleFight = [];
-    var reps = document.querySelector('.reps').value;
+    var reps = parseInt( document.querySelector('.reps').value);
     var htmlDom2 = document.getElementById("listCouple");
     var htmlDom3 = document.getElementById("listFight");
     var couple, node2, fights, node3;
+    console.log( listPeople.length);
     if (reps < 3) {
-        alert("Min rep is 3");
+        alert(`Min rep is 3`);
         return false;
-    } 
+    } else if (reps > listPeople.length) {
+        alert(`Please add more person`);
+        return false;
+    }
 
-    if (listPeople.length < 2) {
-        alert("The number person min is 2");
+    if (listPeople.length < 3) {
+        alert(`The number person min is 3`);
         return false;
     } 
 
